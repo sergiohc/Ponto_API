@@ -1,13 +1,13 @@
 FactoryGirl.define do
   timestamp = loop do
     date = FFaker::Time.date.to_time
-    break date.strftime("%F %T") if date &lt;= Date.today
+    break date.strftime("%F %T") if date <= Date.today
   end
 
   factory :clock_in_out do
     date { FFaker::Time.date }
     employees
-    
+
     hour1 timestamp
 
     hour2 { Faker::Time.at(Time.new(date).to_f + 
