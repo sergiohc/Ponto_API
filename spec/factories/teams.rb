@@ -1,5 +1,5 @@
 FactoryGirl.define do
   factory :team do
-    description "MyText"
+    description { FFaker::Lorem.word }
   end
 end
