@@ -1,4 +1,5 @@
-class Api::V1::OfficesController < ApplicationController
+class Api::V1::OfficesController < Api::V1::ApiController
+
   def index
   end
 
@@ -13,4 +14,10 @@ class Api::V1::OfficesController < ApplicationController
 
   def destroy
   end
+
+  private
+  def office_params
+    params.require(:office).permit(:description)        
+  end
+  
 end

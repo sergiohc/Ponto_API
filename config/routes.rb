@@ -4,7 +4,7 @@ Rails.application.routes.draw do
       mount_devise_token_auth_for 'User', at: 'auth'
       resource :teams
       resource :offices
-      resource :employess
+      resource :employees
       resources :clock_in_out
     end
   end

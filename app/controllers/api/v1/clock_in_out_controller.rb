@@ -1,4 +1,6 @@
-class Api::V1::ClockInOutController < ApplicationController
+class Api::V1::ClockInOutController < Api::V1::ApiController
+  before_action :set_employee_clock, only: [:show, :update, :destroy]
+
   def index
   end
 
@@ -13,4 +15,10 @@ class Api::V1::ClockInOutController < ApplicationController
 
   def destroy
   end
+
+  private
+  def set_employee
+    @employee_clock = Form.friendly.find(params[:employee_id])    
+  end
+
 end

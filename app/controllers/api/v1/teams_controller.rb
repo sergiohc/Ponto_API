@@ -1,4 +1,5 @@
-class Api::V1::TeamsController < ApplicationController
+class Api::V1::TeamsController < Api::V1::ApiController
+
   def index
   end
 
@@ -12,5 +13,10 @@ class Api::V1::TeamsController < ApplicationController
   end
 
   def destroy
+  end
+
+  private
+  def Team_params
+    params.require(:Team_params).permit(:description)        
   end
 end
