@@ -1,8 +1,9 @@
 class Api::V1::ClockInOutController < Api::V1::ApiController
-  before_action :set_employee_clock, only: [:show, :update, :destroy]
-  before_action :set_employ
+  #before_action :set_employee_clock, only: [:show, :update, :destroy]
+  #before_action :set_employ
   def index
-    @clock = ClockInOut.find(:all,:order=> 'date desc')
+    #@clock = ClockInOut.find(:all,:order=> 'date desc')
+    @clock = ClockInOut.all
     render json: @clock
   end
 

@@ -1,16 +1,14 @@
 class Api::V1::EmployeesController < Api::V1::ApiController
- # before_action :authenticate_api_v1_user!, except: [:show]
- # before_action :set_employee, only: [:show, :update, :destroy] 
-#  before_action :allow_only_owner, only: [:index, :show, :destroy] 
+  before_action :authenticate_api_v1_user!, except: [:show]
+  before_action :set_employee, only: [:show, :update, :destroy] 
+  before_action :allow_only_owner, only: [:index, :show, :destroy] 
   
   def index
-    #@employees = current_api_v1_user.employee
-    @employees = Employee.all()
+    @employees = current_api_v1_user.employee
     render json: @employees
   end
 
   def show
-    @employee = Employee.all()
     render json: @employee
   end
 
@@ -35,7 +33,6 @@ class Api::V1::EmployeesController < Api::V1::ApiController
   end 
 
   def set_employee
-    #@employee = Employee.friendly.find(params[:id])
     @employee = Employee.find(params[:id])
   end
 
