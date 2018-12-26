@@ -1,4 +1,7 @@
 class Employee < ApplicationRecord
+  #extend FriendlyId
+  #friendly_id :name, use: :slugged
+
   belongs_to :office
   belongs_to :team
   belongs_to :user
