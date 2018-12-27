@@ -18,7 +18,7 @@ class Api::V1::EmployeesController < Api::V1::ApiController
   end
 
   def create
-    @employee.create(employee_params)
+    Employee.create(employee_params)
     render json: @employee
   end
 
@@ -37,11 +37,9 @@ class Api::V1::EmployeesController < Api::V1::ApiController
   end
 
   def allow_only_owner
-    byebug
     unless current_api_v1_user == @employee.user
       render(json: {}, status: :forbidden) and return
     end
-    byebug
   end
 
 end
