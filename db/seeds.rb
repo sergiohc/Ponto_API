@@ -5,7 +5,7 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-require 'time'
+
 Office.create(description: 'Junior')
 Office.create(description: 'Pleno')
 Office.create(description: 'Senior')
@@ -18,7 +18,7 @@ Employee.create(name: 'Sergio Henrique',
   pis: '23212345674',
   office_id: 1,
   team_id: 1,
-  user_id: 1)
+  user: User.last)
 
 Employee.create(name: 'Leonardo Mark',
   cpf: '11114434930',
@@ -27,12 +27,11 @@ Employee.create(name: 'Leonardo Mark',
   team_id: 2,
   user_id: 1)
 
-
 ClockInOut.create( date: Date.current,
   hour1: Time.now,
   hour2: Time.now,
   hour3: Time.now,
   hour4: Time.now,
-  employee_id: 1
+  employee: Employee.last
 )
 
