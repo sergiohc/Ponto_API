@@ -4,8 +4,11 @@ Rails.application.routes.draw do
       mount_devise_token_auth_for 'User', at: 'auth'
       resources :teams
       resources :offices
-      resources :employees
-      resources :clock_in_out
+      resources :employees 
+      resources :clock_in_out do
+        get 'import_afd'
+      end
+          
     end
   end
 end

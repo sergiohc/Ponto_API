@@ -28,6 +28,11 @@ class Api::V1::ClockInOutController < Api::V1::ApiController
     render json: {message: 'ok'}
   end
 
+  def import_afd
+    @import = ClockInOut.import_afd(params[:clock_in_out_id])
+    render json: @import
+  end
+
   private
   def set_employee
     @employee =  Employee.find(params[:employee_id])  
@@ -42,7 +47,7 @@ class Api::V1::ClockInOutController < Api::V1::ApiController
   end
 
   def clock_params
-    params.require(:clock_in_out).permit(:date, :h1, :h2, :h3, :h4, :day, :employee_id)
+    params.require(:clock_in_out).permit(:date, :hour1, :hour2, :hour3, :hour4, :day, :employee_id)
   end 
 
   def allow_only_owner

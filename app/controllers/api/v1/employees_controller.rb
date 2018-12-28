@@ -18,7 +18,7 @@ class Api::V1::EmployeesController < Api::V1::ApiController
   end
 
   def create
-    Employee.create(employee_params)
+    @employee = Employee.create(employee_params)
     render json: @employee
   end
 
