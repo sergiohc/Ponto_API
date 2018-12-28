@@ -19,7 +19,7 @@ class Api::V1::ClockInOutController < Api::V1::ApiController
   end
 
   def create
-    @add_clock = ClockInOut.create(clock_params.merge(employee: @employee))
+    @add_clock = ClockInOut.createClock(clock_params)
     render json: @add_clock
   end
 
@@ -42,7 +42,7 @@ class Api::V1::ClockInOutController < Api::V1::ApiController
   end
 
   def clock_params
-    params.require(:clock_in_out).permit(:date, :h1, :h2, :h3, :h4, :day)
+    params.require(:clock_in_out).permit(:date, :h1, :h2, :h3, :h4, :day, :employee_id)
   end 
 
   def allow_only_owner
