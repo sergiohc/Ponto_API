@@ -40,17 +40,21 @@ class ClockInOut < ApplicationRecord
     employee = self.find(clock_id)
     #cria o arquivo  tipo 1.3.Registro de marcação de ponto
     arq = File.new("#{employee.employee.name}#{employee.date}AFD.txt", "w")
+    23212345674
     #simula numeracao nsr
     layout = "323456367" 
     #tipo do registro, "3".
-    layout = layout + "3"
+    layout += "3"
     #Data da marcação de ponto, no formato ddmmaaa
-    layout = layout + employee.date.strftime('%d%m%Y')    
+    layout += employee.date.strftime('%d%m%Y')   
     #Horário da marcação de ponto, no Formato "hhmm".
-    layout = layout + employee.date.strftime('%I%M') 
+    layout += employee.date.strftime('%I%M') 
     #Número do PIS do empregado
-    layout = employee.employee.pis
+    layout += employee.employee.pis
     arq.puts(layout)
     arq.close
+
+    IO.binread("#{employee.employee.name}#{employee.date}AFD.txt") 
+    
   end
 end
