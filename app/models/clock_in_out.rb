@@ -53,9 +53,6 @@ class ClockInOut < ApplicationRecord
     #Número do PIS do empregado
     layout += employee.employee.pis
     arq.puts(layout)
-    arq.close
-
-    IO.binread("#{employee.employee.name}#{employee.date}AFD.txt") 
-    
+    arq.close 
   end
 end
