@@ -30,7 +30,8 @@ class Api::V1::ClockInOutController < Api::V1::ApiController
 
   def import_afd
     @import = ClockInOut.import_afd(params[:clock_in_out_id])
-    render json: @import
+
+    send_data(@import, :filename => "sergio henrique2018-12-31AFD.txt")
   end
 
   private

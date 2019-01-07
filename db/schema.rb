@@ -10,17 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20181225184213) do
+ActiveRecord::Schema.define(version: 20190107001101) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "clock_in_outs", force: :cascade do |t|
     t.date     "date"
-    t.datetime "hour1"
-    t.datetime "hour2"
-    t.datetime "hour3"
-    t.datetime "hour4"
+    t.time     "hour1"
+    t.time     "hour2"
+    t.time     "hour3"
+    t.time     "hour4"
     t.integer  "employee_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
