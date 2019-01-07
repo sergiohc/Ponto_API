@@ -40,7 +40,7 @@ class ClockInOut < ApplicationRecord
     #seta e funcionario
     employee = self.find(clock_id)
     #cria o arquivo  tipo 1.3.Registro de marcação de ponto
-    arq = File.new("#{employee.employee.name}#{employee.date}AFD.txt", "w")
+    arq = File.new("importAFD.txt", "w")
     23212345674
     #simula numeracao nsr
     layout = "323456367" 
