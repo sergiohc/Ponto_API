@@ -29,7 +29,7 @@ class Api::V1::EmployeesController < Api::V1::ApiController
 
   private
   def employee_params
-    params.require(:employee).permit(:name, :cpf, :pis, :office_id, :team_id).merge(user: current_api_v1_user)       
+    params.require(:employee).permit(:name, :cpf, :pis, :office, :team).merge(user: current_api_v1_user)       
   end 
 
   def set_employee
