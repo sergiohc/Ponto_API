@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190107001101) do
+ActiveRecord::Schema.define(version: 20190107034905) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -33,15 +33,11 @@ ActiveRecord::Schema.define(version: 20190107001101) do
     t.string   "name"
     t.text     "cpf"
     t.text     "pis"
-    t.integer  "office_id"
-    t.integer  "team_id"
     t.integer  "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string   "slug"
-    t.index ["office_id"], name: "index_employees_on_office_id", using: :btree
     t.index ["slug"], name: "index_employees_on_slug", unique: true, using: :btree
-    t.index ["team_id"], name: "index_employees_on_team_id", using: :btree
     t.index ["user_id"], name: "index_employees_on_user_id", using: :btree
   end
 
@@ -100,7 +96,5 @@ ActiveRecord::Schema.define(version: 20190107001101) do
   end
 
   add_foreign_key "clock_in_outs", "employees"
-  add_foreign_key "employees", "offices"
-  add_foreign_key "employees", "teams"
   add_foreign_key "employees", "users"
 end
