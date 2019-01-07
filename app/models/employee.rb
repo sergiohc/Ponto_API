@@ -8,5 +8,4 @@ class Employee < ApplicationRecord
   has_many :clock_in_out, dependent: :destroy
 
   validates :name, :cpf, :pis, :team, :user, :office , presence: true
-
 end
